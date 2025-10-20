@@ -1,14 +1,25 @@
 {
     "name": "Hello Extension_v2",
-    "description": "Base Level Extension",
+    "description": "Add the reading time to Chrome Extension documentation articles",
     "version": "0.0.1",
     "manifest_version": 3,
+    "icons": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    },
     "background": {
-        "service_worker": "scripts/background.js"
+        "service_worker": "scripts/background.js",
+        "type": "module"
     },
     "action": {
-        "default_popup": "popup/hello.html",
-        "default_icon": "images/hello_extensions.png"
+        "default_icon": {
+            "16": "images/icon-16.png",
+            "32": "images/icon-32.png",
+            "48": "images/icon-48.png",
+            "128": "images/icon-128.png"
+        }
     },
     "content_scripts": [
         {
@@ -20,5 +31,18 @@
                 "https://developer.chrome.com/docs/webstore/*"
             ]
         }
-    ]
+    ],
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+B",
+                "mac": "Command+B"
+            }
+        }
+    }
 }
